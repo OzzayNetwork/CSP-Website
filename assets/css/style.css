@@ -2053,12 +2053,12 @@ section.parallax .counter p {
     transition:all 0.3s;
 }
 
-.blog-home .blog-col:hover .btn-read-more {
+.blog-home .blog-col:hover .btn-read-more,.btn-read-more:hover.btn-read-more {
 	color:#444;
     padding-left:20px;
 }
 
-.blog-home .blog-col:hover .btn-read-more:before {
+.blog-home .blog-col:hover .btn-read-more:before, .btn-read-more:hover.btn-read-more:before {
     width:15px;
     opacity:1;
 }
