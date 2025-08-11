@@ -3141,6 +3141,7 @@ footer {
 	clear:both;
 	color:#b0b0b0;
 	background:#1a191d;
+	background-image: radial-gradient(at bottom center, #1171DD 18%, #013263 100%);
 }
 
 /* Widgets */
@@ -3152,7 +3153,7 @@ footer .footer-widgets {
 }
 
 footer p {
-	color:#b0b0b0;
+	color:#ffffffb3;
 }
 
 footer .widget > p:last-child {
@@ -3165,11 +3166,15 @@ footer .widget h6 {
 }
 
 footer .footer-widgets a {
-	color:#b0b0b0;
+	color:#ffffffb3;
+}
+footer .footer-widgets a:hover
+{
+	color:#fff;
 }
 
 footer .widget .button-store .custom-btn {
-    border-color:#666;
+    border-color:#ffffff54;
 }
 
 footer .widget .button-store .custom-btn:hover {
@@ -3192,7 +3197,7 @@ footer .footer-menu li {
 footer .footer-copyright {
 	position:relative;
 	clear:both;
-    border-top:1px solid #222;
+    border-top:1px solid #ffffff33;
 	padding-top:30px;
 	padding-bottom:30px;
 }
