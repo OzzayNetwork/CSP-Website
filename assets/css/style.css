@@ -3313,7 +3313,7 @@ footer .copyright a {
 }
 .the-apps{
 	padding: 60px;
-	border-radius: 25px;
+	border-radius: 0px;
 	padding-bottom: 100px;
 }
 .image-app-cont{
@@ -3471,6 +3471,14 @@ footer .copyright a {
 }
 .h-80{
 	height: 80px;
+}
+.mobile-app-cont{
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+.mobile-app-cont>.bg-white{
+	flex-grow: 1;
 }
 
 
