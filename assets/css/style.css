@@ -3328,7 +3328,7 @@ footer .copyright a {
 	margin-bottom: 10px;
 }
 .bg-dark{
-	background-color: #000 !important;
+	background-color: #233154 !important;
 }
 .tma-cta__big-title{
 	position: absolute;
@@ -3338,7 +3338,7 @@ footer .copyright a {
     font-size: 400px;
     text-transform: uppercase;
 	font-family: 'Poppins', sans-serif;
-    color: rgba(255,255,255,.6);
+    color: #c4cddd8a;
     opacity: .1;
     font-weight: 700;
     line-height: 1.2;
@@ -3464,6 +3464,10 @@ footer .copyright a {
 .pt-200{
 	padding-top: 200px !important;
 }
+
+.pt-100{
+	padding-top: 100px !important;
+}
 .sticky-phone-wrap{
 	position: sticky;
 	position:-webkit-sticky;
@@ -3480,7 +3484,24 @@ footer .copyright a {
 .mobile-app-cont>.bg-white{
 	flex-grow: 1;
 }
-
+.subscription-newsletter input{
+	border-radius: 0px;
+	border: 2px solid #000;
+	padding: 10px 15px;
+	width: 100%;
+	font-size: 16px;
+	color: #000;
+	background-color: transparent;
+}
+.subscription-newsletter .btn{
+	border-radius: 0px;
+}
+.text-alt-cloud-white{
+	color: #c4cdddad !important;
+}
+.p-0{
+	padding: 0px !important;
+}
 
 
 
