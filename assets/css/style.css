@@ -3530,13 +3530,14 @@ footer .copyright a {
 }
 .product-slide-intro::before{
 	content: "";
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100%;
-	background: rgb(0 0 0 / 51%);
-	transition: all 0.8s ease-in-out;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 51%);
+    transition: all 0.8s ease-in-out;
+    z-index: 10;
 	
 }
 .product-details nav{
@@ -3678,6 +3679,86 @@ footer.site-footer.fixed-footer {
 .fs-18{
 	font-size: 18px !important;
 }
+
+
+/* the project slider styling */
+/* Position dots (bars) 2.5rem from top */
+.project-carousel{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.project-carousel .owl-dots {
+  position: absolute;
+  top: 2.5rem;       /* distance from top */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;         /* spacing between bars */
+  z-index: 10000;
+}
+
+/* Style each bar */
+.project-carousel .owl-dot span {
+  width: 60px;       /* length of the bar */
+  height: 6px;       /* thickness of the bar */
+  background: #ccc;  /* default color */
+  border-radius: 0px;
+  display: block;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+/* Active bar */
+.project-carousel .owl-dot.active span {
+  background: #0d6efd;  /* highlighted color */
+  width: 70px;       /* slightly longer when active */
+}
+
+/* Remove slide movement */
+.project-carousel .owl-stage-outer {
+  overflow: hidden;
+}
+
+.project-carousel .owl-item img {
+  transform: scale(1);
+  transition: transform 3s ease; /* smooth zoom */
+}
+
+/* Apply zoom when the slide becomes active */
+.project-carousel .owl-item.active img {
+  transform: scale(1.3); /* zoom in */
+}
+.owl-item img{
+	position: relative;
+}
+
+.overview-screenshots .owl-dots {
+  margin-top: 1rem; /* Push dots below text */
+  text-align: center;
+}
+
+.overview-screenshots .owl-dot span {
+  width: 6px;
+  height: 6px;
+  background: #ccc;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 4px;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.overview-screenshots .owl-dot.active span {
+  background: #333;
+  width: 40px;
+}
+
+
+
+
+
+
+
+
 
 
 
