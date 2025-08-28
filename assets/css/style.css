@@ -4296,10 +4296,10 @@ footer.site-footer.fixed-footer {
 .portfolio-item .img-overlay {
 	position:absolute;
 	z-index:2;	
-	top:5px;
-	left:5px;
-	right:5px;
-	bottom:5px;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
 	opacity:0;	
 	background:rgba(0, 0, 0, 0.7);
 	-webkit-transition:all 0.3s;
@@ -4337,4 +4337,48 @@ footer.site-footer.fixed-footer {
 }
 .portfolio-filters span.active {
 	background-color: #0d6efd;
+}
+
+.portfolio-item-cont{
+	overflow: hidden;
+}
+
+.cursoer-pointer{
+	cursor: pointer !important;
+}
+
+#portfolioModal .project-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+#portfolioModal .project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+#portfolioModal .modal-content{
+	overflow: hidden;
+}
+
+.social-links {
+    padding: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    background: #f8f9fa;
+}
+
+.desc-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* show only 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+  line-height: 1.4em;
+  max-height: 2.8em;       /* = line-height × 2 */
+  margin-top: 5px;
+  color: #ddd;             /* adjust to fit overlay theme */
+}
+.portfolio-item{
+	cursor: pointer;
+	margin: 1px;
 }
