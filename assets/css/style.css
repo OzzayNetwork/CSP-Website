@@ -728,6 +728,7 @@ section.parallax a:hover {
 	left: 0;
 	top: 0;
 	background: linear-gradient(57deg, #2164f38f 3%, #233154bf 100%);
+	background: linear-gradient(57deg, #2164f3a6 0%, #233154 100%);
 }
 
 /************************
