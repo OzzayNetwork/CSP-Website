@@ -727,6 +727,7 @@ section.parallax a:hover {
 	height: 100%;
 	left: 0;
 	top: 0;
+	background: linear-gradient(57deg, #2164f38f 3%, #233154bf 100%);
 }
 
 /************************
@@ -4173,7 +4174,7 @@ footer.site-footer.fixed-footer {
 	z-index: 1;
 }
 .parallax-contact{
-	background-position: bottom center !important;
+	background-position: bottom center;
 }
 .moon-man-cont{
 	/* position: relative; */
@@ -4381,4 +4382,15 @@ footer.site-footer.fixed-footer {
 .portfolio-item{
 	cursor: pointer;
 	margin: 1px;
+}
+.pt-50{
+	padding-top: 50px !important;
+
+}
+.pb-50{
+	padding-bottom: 50px !important;
+
+}
+.overflow-y-show{
+	overflow-y: visible !important;
 }
