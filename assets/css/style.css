@@ -4395,3 +4395,27 @@ footer.site-footer.fixed-footer {
 .overflow-y-show{
 	overflow-y: visible !important;
 }
+
+.feature-img.owl-carousel.owl-drag .owl-item{
+	border-radius: 100px;
+	overflow: hidden;
+}
+.clients-slider .owl-item{
+	height: 140px;
+	/* background-color: black; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+}
+.clients-slider .owl-stage{
+	/* background-color: blue; */
+	display: flex;
+}
+.clients-slider .owl-item{
+	filter: grayscale(100%);
+}
+.clients-slider .owl-item:hover{
+	filter: grayscale(0%);
+	transition: all 0.3s ease-in-out;
+}
