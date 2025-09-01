@@ -154,37 +154,37 @@
 
 							<li class="nav-item">
 								<a class="nav-link js-scroll-trigger" href="#features">
-									<span>Features</span>
-								</a>
-							</li>
-
-							<li class="nav-item d-none">
-								<a class="nav-link js-scroll-trigger" href="#screenshots">
-									<span>Screenshots</span>
+									<span>About Us</span>
 								</a>
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link js-scroll-trigger" href="#Journey">
-									<span>Customer Journey</span>
+								<a class="nav-link js-scroll-trigger" href="#products">
+									<span>Our Products</span>
 								</a>
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link js-scroll-trigger" href="#driver-app">
-									<span>Bowser's App</span>
+								<a class="nav-link js-scroll-trigger" href="#blog">
+									<span>Articles</span>
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link js-scroll-trigger" href="#gallery">
+									<span>Gallery</span>
 								</a>
 							</li>
 
 
 
-							<li class="nav-item d-none">
-								<a class="nav-link js-scroll-trigger" href="contact.html">
+							<li class="nav-item">
+								<a class="nav-link js-scroll-trigger" href="#contact">
 									<span>Contact</span>
 								</a>
 							</li>
 
-							<li class="nav-item search-option d-none">
+							<li class="nav-item search-option ">
 								<a class="nav-link" href="#">
 									<i class="fas fa-search"></i>
 								</a>
@@ -723,7 +723,20 @@
 			</div>
 
 			<div class="row">
-				<div class="col-md-12 about-img">
+				<div class="col-12 about-img" data-wow-offset="10" data-wow-duration="1s"
+					data-wow-delay="0.3s">
+					<div class="text-center">
+						<div class="products-bunner owl-carousel">
+							<img src="images/about/about.png" alt="" />
+							<img src="images/about/about-1.png" alt="" />
+							<img src="images/about/about-2.png" alt="" />
+							<img src="images/about/about-3.png" alt="" />
+							<img src="images/about/about-4.png" alt="" />
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12 about-img d-none">
 					<img src="images/about/about.png" alt="About">
 				</div>
 			</div>
@@ -904,7 +917,7 @@
 
 	</section>
 
-	<section class="the-apps p-0 frost-bg-2">
+	<section id="products" class="the-apps p-0 frost-bg-2">
 		<div class="container">
 			<div class="row d-flex justify-content-center">
 				<div class="col-12 col-md-10 col-lg-8">
@@ -1456,7 +1469,7 @@
 			</div>
 
 			<!-- Portfolio navigation bar -->
-			<div class="row">
+			<div class="row d-none">
 
 				<!-- Filter links -->
 				<div class="portfolio-filters text-center col-sm-12">
@@ -4201,6 +4214,25 @@
 			}
 		});
 	});
+</script>
+
+<script>
+	$(document).ready(function(){
+  $(".products-bunner").owlCarousel({
+    items:1,
+    loop:true,
+    nav:false,
+    dots:false,
+    autoplay:true,
+    autoplayTimeout:4000,
+    autoplayHoverPause:true,
+    smartSpeed:800,
+    animateOut: 'animate__fadeOut',  // 👈 Animate.css class
+    animateIn: 'animate__fadeIn'     // 👈 entry animation
+  });
+});
+
+
 </script>
 
 
