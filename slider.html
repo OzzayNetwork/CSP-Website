@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proven Resume Templates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #3b3e98;
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.5;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .template-label {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-count {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+
+        .carousel-container {
+            position: relative;
+            height: 600px;
+            overflow: visible;
+            perspective: 1000px;
+            perspective-origin: center center;
+        }
+
+        .owl-carousel {
+            height: 100%;
+        }
+
+        .owl-stage-outer {
+            overflow: visible !important;
+        }
+
+        .owl-item {
+            transform: scale(0.65) translateY(80px) translateZ(-200px);
+            opacity: 0.4;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1;
+        }
+
+        .owl-item.center {
+            transform: scale(1.2) translateY(-20px) translateZ(0);
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .owl-item.active:first-child {
+            transform: scale(0.65) translateY(80px) translateZ(-200px) rotateY(-15deg);
+        }
+
+        .owl-item.active:last-child {
+            transform: scale(0.65) translateY(80px) translateZ(-200px) rotateY(15deg);
+        }
+
+        .resume-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            height: 400px;
+            margin: 0 15px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .resume-header {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .resume-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .resume-title {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .resume-content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            height: calc(100% - 140px);
+            font-size: 12px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .section h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .section-text {
+            color: #666;
+            line-height: 1.4;
+            font-size: 10px;
+        }
+
+        .use-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .owl-item.center .use-btn {
+            opacity: 1;
+        }
+
+        .use-btn:hover {
+            background: #3367d6;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-size: 18px;
+            color: #666;
+            z-index: 20;
+        }
+
+        .nav-prev {
+            left: -60px;
+        }
+
+        .nav-next {
+            right: -60px;
+        }
+
+        .navigation:hover {
+            background: #f0f0f0;
+        }
+
+        /* Hide default owl nav */
+        .owl-nav {
+            display: none;
+        }
+
+        .owl-dots {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .owl-dot {
+            width: 8px !important;
+            height: 8px !important;
+            margin: 0 4px !important;
+            background: rgba(255,255,255,0.4) !important;
+            border-radius: 50% !important;
+        }
+
+        .owl-dot.active {
+            background: white !important;
+        }
+
+        /* Specific resume designs to match the image */
+        .resume-1 {
+            background: linear-gradient(45deg, #ff4081, #ff6ec7);
+        }
+
+        .resume-2 .resume-header {
+            background: #f5f5f5;
+        }
+
+        .resume-3 .resume-header {
+            background: #1976d2;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .carousel-container {
+                height: 350px;
+            }
+            
+            .resume-card {
+                height: 300px;
+            }
+            
+            .navigation {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Proven resume<br>templates</h1>
+            <p>These resume templates are here because they work.<br>Every one is tried and tested on real hiring managers</p>
+            
+            <div class="template-label">Classic</div>
+            <div class="user-count">6,200,000+ users chose this template</div>
+        </div>
+
+        <div class="carousel-container">
+            <button class="navigation nav-prev" onclick="prevSlide()">‹</button>
+            <button class="navigation nav-next" onclick="nextSlide()">›</button>
+            
+            <div class="owl-carousel owl-theme resume-carousel">
+                
+                <!-- Resume 1 -->
+                <div class="resume-item">
+                    <div class="resume-card">
+                        <div class="resume-header">
+                            <div class="resume-name">GERRI SMITH</div>
+                            <div class="resume-title">RESTAURANT MANAGER</div>
+                        </div>
+                        <div class="resume-content">
+                            <div class="section">
+                                <h4>PROFILE</h4>
+                                <div class="section-text">
+                                    Experienced and effective Restaurant Manager seeking to use proven management and organizational skills...
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EMPLOYMENT HISTORY</h4>
+                                <div class="section-text">
+                                    Wellness Program Director at YMCA<br>
+                                    Nov 2019 - Present
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>SKILLS</h4>
+                                <div class="section-text">
+                                    • Team Leadership<br>
+                                    • Customer Service<br>
+                                    • Budget Management
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EDUCATION</h4>
+                                <div class="section-text">
+                                    Master of Business Administration<br>
+                                    University of Nevada
+                                </div>
+                            </div>
+                        </div>
+                        <button class="use-btn">Use this template</button>
+                    </div>
+                </div>
+
+                <!-- Resume 2 -->
+                <div class="resume-item">
+                    <div class="resume-card">
+                        <div class="resume-header">
+                            <div class="resume-name">Tim Stewart, Accountant</div>
+                            <div class="resume-title">60 Cold Spring, New York, NY 10028, United States</div>
+                        </div>
+                        <div class="resume-content">
+                            <div class="section">
+                                <h4>PROFILE</h4>
+                                <div class="section-text">
+                                    Certified Accountant with five years of experience in account reconciliation, streamlining accounts...
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EMPLOYMENT HISTORY</h4>
+                                <div class="section-text">
+                                    Staff Accountant, Fieldner Partnership<br>
+                                    Nov 2019 - Sep 2019
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EDUCATION</h4>
+                                <div class="section-text">
+                                    Master of Accounting, St. John's College<br>
+                                    Jul 2009 - Jun 2013<br>
+                                    Graduated with High Honors
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>SKILLS</h4>
+                                <div class="section-text">
+                                    • Financial Analysis<br>
+                                    • Tax Preparation<br>
+                                    • QuickBooks Pro
+                                </div>
+                            </div>
+                        </div>
+                        <button class="use-btn">Use this template</button>
+                    </div>
+                </div>
+
+                <!-- Resume 3 -->
+                <div class="resume-item">
+                    <div class="resume-card">
+                        <div class="resume-header" style="background: #1976d2; color: white;">
+                            <div class="resume-name">HOWARD JONES</div>
+                            <div class="resume-title">LAWYER</div>
+                        </div>
+                        <div class="resume-content">
+                            <div class="section">
+                                <h4>PROFILE</h4>
+                                <div class="section-text">
+                                    Experienced and successful Lawyer with a passion and dedication to justice. Highly organized...
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EMPLOYMENT HISTORY</h4>
+                                <div class="section-text">
+                                    Lawyer, Madison and Fletcher Associates at Law<br>
+                                    Sep 2018 - Present
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EDUCATION</h4>
+                                <div class="section-text">
+                                    Juris Doctor, Harvard Law School<br>
+                                    Sep 2012 - May 2015<br>
+                                    Magna Cum Laude
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>SKILLS</h4>
+                                <div class="section-text">
+                                    • Legal Research<br>
+                                    • Case Management<br>
+                                    • Client Relations
+                                </div>
+                            </div>
+                        </div>
+                        <button class="use-btn">Use this template</button>
+                    </div>
+                </div>
+
+                <!-- Resume 4 -->
+                <div class="resume-item">
+                    <div class="resume-card">
+                        <div class="resume-header">
+                            <div class="resume-name">SARAH MILLER</div>
+                            <div class="resume-title">MARKETING SPECIALIST</div>
+                        </div>
+                        <div class="resume-content">
+                            <div class="section">
+                                <h4>PROFILE</h4>
+                                <div class="section-text">
+                                    Creative Marketing Specialist with expertise in digital marketing, brand development...
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EMPLOYMENT HISTORY</h4>
+                                <div class="section-content">
+                                    Marketing Coordinator, Digital Agency<br>
+                                    Jan 2020 - Present
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>SKILLS</h4>
+                                <div class="section-text">
+                                    • Social Media Marketing<br>
+                                    • Content Creation<br>
+                                    • Analytics
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EDUCATION</h4>
+                                <div class="section-text">
+                                    Bachelor of Marketing<br>
+                                    State University
+                                </div>
+                            </div>
+                        </div>
+                        <button class="use-btn">Use this template</button>
+                    </div>
+                </div>
+
+                <!-- Resume 5 -->
+                <div class="resume-item">
+                    <div class="resume-card">
+                        <div class="resume-header">
+                            <div class="resume-name">JAMES WILSON</div>
+                            <div class="resume-title">SOFTWARE ENGINEER</div>
+                        </div>
+                        <div class="resume-content">
+                            <div class="section">
+                                <h4>PROFILE</h4>
+                                <div class="section-text">
+                                    Experienced Software Engineer with expertise in full-stack development...
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EMPLOYMENT HISTORY</h4>
+                                <div class="section-text">
+                                    Senior Developer, Tech Company<br>
+                                    Mar 2019 - Present
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>SKILLS</h4>
+                                <div class="section-text">
+                                    • JavaScript, Python<br>
+                                    • React, Node.js<br>
+                                    • Database Design
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h4>EDUCATION</h4>
+                                <div class="section-text">
+                                    Computer Science Degree<br>
+                                    MIT
+                                </div>
+                            </div>
+                        </div>
+                        <button class="use-btn">Use this template</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script>
+        var owl;
+        
+        $(document).ready(function(){
+            owl = $('.resume-carousel').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                dots: true,
+                center: true,
+                autoplay: true,
+                autoplayTimeout: 4000,
+                autoplayHoverPause: true,
+                smartSpeed: 600,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 3
+                    }
+                },
+                onChanged: updateCenterItem,
+                onInitialized: updateCenterItem
+            });
+
+            function updateCenterItem() {
+                $('.owl-item').removeClass('center');
+                $('.owl-item.active').eq(1).addClass('center');
+            }
+
+            $('.use-btn').click(function(e) {
+                e.preventDefault();
+                alert('Template selected! This would redirect to the editor.');
+            });
+        });
+
+        function nextSlide() {
+            owl.trigger('next.owl.carousel');
+        }
+
+        function prevSlide() {
+            owl.trigger('prev.owl.carousel');
+        }
+    </script>
+</body>
+</html>

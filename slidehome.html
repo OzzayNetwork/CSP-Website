@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSPL Slideshow</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KMB6B4QJ18"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-KMB6B4QJ18');
+	</script>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Title -->
+	<title>CSPL | Craft silicon Payments</title>
+
+	<!-- Favicon -->
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+	<!-- Google web font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="assets/library/bootstrap/css/bootstrap.min.css">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="assets/library/fontawesome/css/all.min.css">
+
+	<!-- Linea icons -->
+	<link rel="stylesheet" href="assets/library/linea/arrows/styles.css" />
+	<link rel="stylesheet" href="assets/library/linea/basic/styles.css" />
+	<link rel="stylesheet" href="assets/library/linea/ecommerce/styles.css" />
+	<link rel="stylesheet" href="assets/library/linea/software/styles.css" />
+	<link rel="stylesheet" href="assets/library/linea/weather/styles.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/displays.css">
+
+
+
+	<!-- Animate -->
+	<link rel="stylesheet" href="assets/library/animate/animate.css">
+
+	<!-- Lightcase -->
+	<link rel="stylesheet" href="assets/library/lightcase/css/lightcase.css">
+
+	<!-- Swiper -->
+	<link rel="stylesheet" href="assets/library/swiper/swiper-bundle.min.css">
+
+	<!-- Owl carousel -->
+	<link rel="stylesheet" href="assets/library/owlcarousel/owl.carousel.min.css">
+
+	<!-- Slick carousel -->
+	<link rel="stylesheet" href="assets/library/slick/slick.css">
+
+	<!-- Magnific popup -->
+	<link rel="stylesheet" href="assets/library/magnificpopup/magnific-popup.css">
+
+	<!-- YTPlayer -->
+	<link rel="stylesheet" href="assets/library/ytplayer/css/jquery.mb.ytplayer.min.css">
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/media.css">
+
+	<!-- Color schema -->
+	<link rel="stylesheet" href="assets/colors/blue.css" class="colors">
+
+	<!-- Settings (Remove it on your site) -->
+	<link rel="stylesheet" href="assets/library/settings/settings.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        
+
+
+        
+
+        .button-store {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .custom-btn {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .custom-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(45deg, #2980b9, #3498db);
+        }
+
+        .custom-btn i {
+            margin-right: 15px;
+        }
+
+        .custom-btn p {
+            margin: 0;
+            text-align: left;
+        }
+
+        .custom-btn small {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .custom-btn span {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .banner-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            z-index: 1000;
+        }
+
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
+        }
+
+        .slide-indicators {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .indicator.active {
+            background: #3498db;
+            transform: scale(1.3);
+        }
+
+        .indicator.active::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid rgba(52, 152, 219, 0.5);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .slide-counter {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        .current-slide {
+            color: #3498db;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* Wave Effect */
+        .wave-effect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .waves-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            animation: wave-animation 8s linear infinite;
+        }
+
+        .wave-two {
+            animation-delay: -2s;
+            animation-duration: 10s;
+            background: linear-gradient(90deg, transparent, rgba(155, 89, 182, 0.1), transparent);
+        }
+
+        .wave-three {
+            animation-delay: -4s;
+            animation-duration: 12s;
+            background: linear-gradient(90deg, transparent, rgba(46, 204, 113, 0.1), transparent);
+        }
+
+        @keyframes wave-animation {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .banner-text p {
+                font-size: 1rem;
+            }
+
+            .button-store {
+                justify-content: center;
+            }
+
+            .nav-controls {
+                bottom: 20px;
+                gap: 30px;
+            }
+
+            .nav-arrows {
+                gap: 15px;
+            }
+
+            .nav-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 12px;
+            }
+
+            .numbered-indicator {
+                width: 30px;
+                font-size: 14px;
+            }
+
+            .slide-counter {
+                font-size: 20px;
+            }
+
+            .current-slide {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-content">
+                        <div class="banner-text">
+                            <h1>Welcome to CSPL</h1>
+                            <p>Craft Silicon Payments is a leading provider of innovative digital solutions that transform governance, healthcare, and financial systems. We combine deep local expertise with advanced technology to drive transparency, accountability, and efficiency.</p>
+                            <div class="button-store">
+                                <a href="#products" class="custom-btn">
+                                    <i class="fas fa-box-open fa-2x"></i>
+                                    <p>
+                                        <small>Explore</small>
+                                        <span>Our Products</span>
+                                    </p>
+                                </a>
+                                <a href="#contacts" class="custom-btn">
+                                    <i class="fas fa-envelope-open-text fa-2x"></i>
+                                    <p>
+                                        <small>Reach out</small>
+                                        <span>Contact Us</span>
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-image">
+                        <div class="banner-image">
+                            <img src="https://via.placeholder.com/400x300/3498db/ffffff?text=Innovation" alt="Innovation" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-content">
+                        <div class="banner-text">
+                            <span class="subtitle">
+                                <i class="fas fa-rocket icon-img"></i>
+                                Getting there starts Here
+                            </span>
+                            <h1>Beyond Boundaries, Towards Innovation</h1>
+                            <p>Craft Silicon Payments is a pioneer in innovative digital solutions that push beyond boundaries. By merging advanced technology with practical innovation, we empower governance, healthcare, and financial systems to achieve transparency, efficiency, and sustainable growth.</p>
+                            <div class="button-store">
+                                <a href="#products" class="custom-btn">
+                                    <i class="fas fa-box-open fa-2x"></i>
+                                    <p>
+                                        <small>Explore</small>
+                                        <span>Our Products</span>
+                                    </p>
+                                </a>
+                                <a href="#contacts" class="custom-btn">
+                                    <i class="fas fa-envelope-open-text fa-2x"></i>
+                                    <p>
+                                        <small>Reach out</small>
+                                        <span>Contact Us</span>
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-image">
+                        <div class="banner-image">
+                            <img src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=Beyond+Boundaries" alt="Beyond Boundaries" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-content">
+                        <div class="banner-text">
+                            <span class="subtitle">
+                                <i class="fas fa-dollar-sign icon-img"></i>
+                                Cashless. Transparent. Efficient.
+                            </span>
+                            <h1>Revolutionizing County Processes</h1>
+                            <p>We empower counties with smart digital platforms that simplify revenue collection, close gaps that lead to leakages, and ensure accountability. By automating processes and promoting cashless transactions, counties can focus on delivering better services, driving sustainable development, and building trust with their citizens.</p>
+                            <div class="button-store">
+                                <a href="#products" class="custom-btn">
+                                    <i class="fas fa-box-open fa-2x"></i>
+                                    <p>
+                                        <small>Explore</small>
+                                        <span>Our Products</span>
+                                    </p>
+                                </a>
+                                <a href="#contacts" class="custom-btn">
+                                    <i class="fas fa-envelope-open-text fa-2x"></i>
+                                    <p>
+                                        <small>Reach out</small>
+                                        <span>Contact Us</span>
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-image">
+                        <div class="banner-image">
+                            <img src="https://via.placeholder.com/400x300/27ae60/ffffff?text=County+Solutions" alt="County Solutions" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-content">
+                        <div class="banner-text">
+                            <span class="subtitle">
+                                <i class="fas fa-cube icon-img"></i>
+                                Tools built for hospitals, counties & corporates.
+                            </span>
+                            <h1>Solutions That Scale With You</h1>
+                            <p>Explore our suite of systems—Revenue, Healthcare, HR, Project Management, and AI-powered platforms. Each is designed to grow with your needs, ensuring seamless integration and enhanced efficiency as you evolve.</p>
+                            <div class="button-store">
+                                <a href="#products" class="custom-btn">
+                                    <i class="fas fa-box-open fa-2x"></i>
+                                    <p>
+                                        <small>Explore</small>
+                                        <span>Our Products</span>
+                                    </p>
+                                </a>
+                                <a href="#contacts" class="custom-btn">
+                                    <i class="fas fa-envelope-open-text fa-2x"></i>
+                                    <p>
+                                        <small>Reach out</small>
+                                        <span>Contact Us</span>
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-image">
+                        <div class="banner-image">
+                            <img src="https://via.placeholder.com/400x300/9b59b6/ffffff?text=Scalable+Solutions" alt="Scalable Solutions" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-content">
+                        <div class="banner-text">
+                            <span class="subtitle">
+                                <i class="fas fa-robot icon-img"></i>
+                                Smart, predictive, and adaptive.
+                            </span>
+                            <h1>AI for the Future of Africa</h1>
+                            <p>Our AI-driven platforms go beyond automation—they continuously learn from data, adapt to changing needs, and optimize decision-making. From governance to healthcare, they enhance efficiency, predict trends, and deliver actionable insights that create measurable impact for institutions and the people they serve.</p>
+                            <div class="button-store">
+                                <a href="#products" class="custom-btn">
+                                    <i class="fas fa-box-open fa-2x"></i>
+                                    <p>
+                                        <small>Explore</small>
+                                        <span>Our Products</span>
+                                    </p>
+                                </a>
+                                <a href="#contacts" class="custom-btn">
+                                    <i class="fas fa-envelope-open-text fa-2x"></i>
+                                    <p>
+                                        <small>Reach out</small>
+                                        <span>Contact Us</span>
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-image">
+                        <div class="banner-image">
+                            <img src="https://via.placeholder.com/400x300/f39c12/ffffff?text=AI+Solutions" alt="AI Solutions" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <div class="nav-arrow" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            
+            <div class="slide-indicators">
+                <div class="indicator active" data-slide="0"></div>
+                <div class="indicator" data-slide="1"></div>
+                <div class="indicator" data-slide="2"></div>
+                <div class="indicator" data-slide="3"></div>
+                <div class="indicator" data-slide="4"></div>
+            </div>
+
+            <div class="nav-arrow" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+
+            <div class="slide-counter">
+                <span class="current-slide">01</span> / 05
+            </div>
+        </div>
+
+        <!-- Wave Effect -->
+        <div class="wave-effect">
+            <div class="waves-shape">
+                <div class="wave"></div>
+            </div>
+            <div class="waves-shape">
+                <div class="wave wave-two"></div>
+            </div>
+            <div class="waves-shape">
+                <div class="wave wave-three"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class Slideshow {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 5;
+                this.slides = document.querySelectorAll('.slide');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.slideCounter = document.querySelector('.current-slide');
+                this.autoSlideInterval = null;
+                
+                this.init();
+            }
+
+            init() {
+                // Add event listeners
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+
+                // Start auto-slide
+                this.startAutoSlide();
+
+                // Pause auto-slide on hover
+                const container = document.querySelector('.slideshow-container');
+                container.addEventListener('mouseenter', () => this.pauseAutoSlide());
+                container.addEventListener('mouseleave', () => this.startAutoSlide());
+            }
+
+            goToSlide(slideIndex) {
+                // Remove active class from current slide and indicator
+                this.slides[this.currentSlide].classList.remove('active');
+                this.indicators[this.currentSlide].classList.remove('active');
+
+                // Update current slide index
+                this.currentSlide = slideIndex;
+
+                // Add active class to new slide and indicator
+                this.slides[this.currentSlide].classList.add('active');
+                this.indicators[this.currentSlide].classList.add('active');
+
+                // Update counter
+                this.updateCounter();
+            }
+
+            nextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(nextIndex);
+            }
+
+            prevSlide() {
+                const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(prevIndex);
+            }
+
+            updateCounter() {
+                const slideNumber = (this.currentSlide + 1).toString().padStart(2, '0');
+                this.slideCounter.textContent = slideNumber;
+            }
+
+            startAutoSlide() {
+                this.autoSlideInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 5000); // Change slide every 5 seconds
+            }
+
+            pauseAutoSlide() {
+                if (this.autoSlideInterval) {
+                    clearInterval(this.autoSlideInterval);
+                    this.autoSlideInterval = null;
+                }
+            }
+        }
+
+        // Initialize slideshow when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Slideshow();
+        });
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate buttons on hover
+            const buttons = document.querySelectorAll('.custom-btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
