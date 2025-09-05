@@ -4424,3 +4424,8 @@ footer.site-footer.fixed-footer {
 .backstretch{
 	position: fixed !important;
 }
+
+.owl-carousel .owl-item img{
+	width: auto;
+	display: inherit;
+}
