@@ -1281,6 +1281,8 @@ section.parallax a:hover {
 	position: relative;
 	overflow: hidden;
 	text-align: center;
+	margin-right: 15px;
+
 }
 
 .clients-slider .client img {
@@ -3383,6 +3385,8 @@ footer .copyright a {
 .txt-highlight {
 	padding-left: 10px;
 	padding-right: 10px;
+	background:	#2164f3;
+ ;
 	background: linear-gradient(91.22deg, rgba(84, 51, 255, .9) 6.88%, rgba(32, 189, 255, .9) 52.57%, rgb(70 121 241 / 90%) 93.2%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;

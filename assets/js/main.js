@@ -687,9 +687,12 @@
                             items:2
                         },
 						576:{
-                            items:3
+                            items:2
                         },
                         768:{
+                            items:3
+						},
+						992:{
                             items:5
                         }
                     },
