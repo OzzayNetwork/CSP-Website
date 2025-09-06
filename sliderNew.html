@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proven Resume Templates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #3b3e98 0%, #4c63d2 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .target-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            position: relative;
+        }
+
+        .target-icon::before {
+            content: '🎯';
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Template Info */
+        .template-info {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .template-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .user-count {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            height: 500px;
+            margin-bottom: 0px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-wrapper {
+            align-items: center;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            background: transparent;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+            justify-content: baseline;
+        }
+
+        /* Default state - side slides */
+        .swiper-slide {
+            transform: scale(0.7) translateY(50px);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Active slide - center */
+        .swiper-slide-active {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .resume-card {
+            width: 320px;
+            height: 400px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+            color: #333;
+        }
+
+        /* Resume Card Content */
+        .resume-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .resume-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .resume-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            font-size: 11px;
+            color: #95a5a6;
+            margin-top: 8px;
+        }
+
+        .resume-body {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            height: calc(100% - 120px);
+            font-size: 11px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #3498db;
+        }
+
+        .section h4 {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            letter-spacing: 0.5px;
+        }
+
+        .section-content {
+            color: #5a6c7d;
+            line-height: 1.4;
+            font-size: 9px;
+        }
+
+        /* Different resume styles */
+        .gerri-smith {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+        }
+
+        .gerri-smith .resume-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .tim-stewart .resume-header {
+            background: #f8f9fa;
+        }
+
+        .howard-jones .resume-header {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .howard-jones .resume-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Use Template Button */
+        .use-template-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        }
+
+        .swiper-slide-active .use-template-btn {
+            opacity: 1;
+        }
+
+        .use-template-btn:hover {
+            background: #3367d6;
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+        }
+
+        /* Navigation */
+        .swiper-button-next,
+        .swiper-button-prev {
+            background: rgba(255,255,255,0.9);
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            border-radius: 50%;
+            color: #3b3e98 !important;
+            font-weight: bold;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .swiper-button-prev {
+            left: -30px;
+        }
+
+        .swiper-button-next {
+            right: -30px;
+        }
+
+        /* Pagination */
+        .swiper-pagination {
+            position: static;
+            margin-top: 30px;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.4);
+            opacity: 1;
+            margin: 0 6px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+            
+            .slideshow-container {
+                height: 400px;
+            }
+            
+            .resume-card {
+                width: 280px;
+                height: 350px;
+            }
+            
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none;
+            }
+            
+            .resume-body {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resume-card {
+                width: 250px;
+                height: 320px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="target-icon"></div>
+            <h1>Proven resume<br>templates</h1>
+            <p>These resume templates are here because they work.<br>Every one is tried and tested on real hiring managers</p>
+        </div>
+
+        <!-- Template Info -->
+        <div class="template-info">
+            <div class="template-name">Classic</div>
+            <div class="user-count">6,200,000+ users chose this template</div>
+        </div>
+
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    
+                    <!-- Slide 1: Gerri Smith -->
+                    <div class="swiper-slide">
+                        <div class="resume-card">
+                            <div class="resume-header gerri-smith">
+                                <div class="resume-title">GERRI SMITH</div>
+                                <div class="resume-subtitle">RESTAURANT MANAGER</div>
+                                <div class="contact-info">(702) 554-7834 • gerri@email.com</div>
+                            </div>
+                            <div class="resume-body">
+                                <div class="section">
+                                    <h4>PROFILE</h4>
+                                    <div class="section-content">
+                                        Experienced and effective Restaurant Manager seeking to use proven management and organizational skills in industry superior as well as expertise in managing staff and regular PH functions. Equipped with creating positive team relationships resulting in optimal customer service...
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EMPLOYMENT HISTORY</h4>
+                                    <div class="section-content">
+                                        Wellness Program Director at YMCA<br>
+                                        Nov 2019 - Present<br><br>
+                                        Restaurant Manager at The Flamingo<br>
+                                        Oct 2017 - Nov 2019
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>SKILLS</h4>
+                                    <div class="section-content">
+                                        • Leadership/Management<br>
+                                        • Industry Knowledge<br>
+                                        • Customer Service<br>
+                                        • Training<br>
+                                        • Food Safety
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EDUCATION</h4>
+                                    <div class="section-content">
+                                        High School Diploma<br>
+                                        Las Vegas High School<br>
+                                        Sep 1995 - Jun 1999
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="use-template-btn">Use this template</button>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Tim Stewart -->
+                    <div class="swiper-slide">
+                        <div class="resume-card">
+                            <div class="resume-header tim-stewart">
+                                <div class="resume-title">Tim Stewart, Accountant</div>
+                                <div class="contact-info">60 Cold Spring, New York, NY 10028, United States | (917) 387-7378 | tim.stewart@gmail.com</div>
+                            </div>
+                            <div class="resume-body">
+                                <div class="section">
+                                    <h4>PROFILE</h4>
+                                    <div class="section-content">
+                                        Certified Accountant with five years of experience in account reconciliation, streamlining accounts and financial planning. Highly motivated professional with a genuine love for following account movements and ensuring balance to help business growth. A dedicated leader who can achieve excellent service while providing priority development.
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EMPLOYMENT HISTORY</h4>
+                                    <div class="section-content">
+                                        Staff Accountant, Fieldner Partnership<br>
+                                        Nov 2019 - Sep 2019<br>
+                                        • Processed reports based on workflow<br>
+                                        • Prepared company accounts<br>
+                                        • Maintained financial records<br><br>
+                                        Huntington Associates<br>
+                                        Jul 2019 - Jul 2019
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EDUCATION</h4>
+                                    <div class="section-content">
+                                        Master of Accounting, St. John's College<br>
+                                        Jul 2009 - Jun 2013<br>
+                                        • Graduated with High Honors
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>SKILLS</h4>
+                                    <div class="section-content">
+                                        • Financial Analysis<br>
+                                        • Tax Preparation<br>
+                                        • QuickBooks<br>
+                                        • Excel<br>
+                                        • Accounts Payable/Receivable
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="use-template-btn">Use this template</button>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Howard Jones -->
+                    <div class="swiper-slide">
+                        <div class="resume-card">
+                            <div class="resume-header howard-jones">
+                                <div class="resume-title">HOWARD JONES</div>
+                                <div class="resume-subtitle">LAWYER</div>
+                                <div class="contact-info" style="color: rgba(255,255,255,0.8);">15 Shelby Ford, San Francisco, CA 94102, United States | h.jones@email.com</div>
+                            </div>
+                            <div class="resume-body">
+                                <div class="section">
+                                    <h4>PROFILE</h4>
+                                    <div class="section-content">
+                                        Experienced and successful Lawyer with a passion and dedication to justice. Highly organized and detail-oriented, with expertise in providing clients with exceptional legal services. A sharp eye for detail, along with solid judgment and understanding, will provide exceptional contribution to your company.
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EMPLOYMENT HISTORY</h4>
+                                    <div class="section-content">
+                                        Lawyer, Madison and Fletcher Associates at Law<br>
+                                        Sep 2018 - Present<br><br>
+                                        Legal counsel and recommendations of the constitutional law and federal employment guidelines. Coordinated and reviewed all regulations and business policies as legal requirements for the successful implementation. Experienced advice on the litigation of claims.
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EDUCATION</h4>
+                                    <div class="section-content">
+                                        Juris Doctor, Harvard Law School<br>
+                                        Sep 2012 - May 2015<br>
+                                        Magna Cum Laude
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>SKILLS</h4>
+                                    <div class="section-content">
+                                        • Legal Research<br>
+                                        • Case Management<br>
+                                        • Contract Law<br>
+                                        • Client Relations<br>
+                                        • Litigation
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="use-template-btn">Use this template</button>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Sarah Miller -->
+                    <div class="swiper-slide">
+                        <div class="resume-card">
+                            <div class="resume-header">
+                                <div class="resume-title">SARAH MILLER</div>
+                                <div class="resume-subtitle">MARKETING SPECIALIST</div>
+                                <div class="contact-info">sarah.miller@email.com | (555) 123-4567</div>
+                            </div>
+                            <div class="resume-body">
+                                <div class="section">
+                                    <h4>PROFILE</h4>
+                                    <div class="section-content">
+                                        Creative Marketing Specialist with 5+ years of experience in digital marketing, brand development, and campaign management. Proven track record of increasing brand awareness and driving customer engagement through innovative marketing strategies.
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EMPLOYMENT HISTORY</h4>
+                                    <div class="section-content">
+                                        Marketing Coordinator, Digital Agency<br>
+                                        Jan 2020 - Present<br>
+                                        • Managed social media campaigns<br>
+                                        • Developed content strategies<br>
+                                        • Analyzed marketing metrics
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>SKILLS</h4>
+                                    <div class="section-content">
+                                        • Social Media Marketing<br>
+                                        • Content Creation<br>
+                                        • Google Analytics<br>
+                                        • SEO/SEM<br>
+                                        • Adobe Creative Suite
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EDUCATION</h4>
+                                    <div class="section-content">
+                                        Bachelor of Marketing<br>
+                                        State University<br>
+                                        2016 - 2020
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="use-template-btn">Use this template</button>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: James Wilson -->
+                    <div class="swiper-slide">
+                        <div class="resume-card">
+                            <div class="resume-header">
+                                <div class="resume-title">JAMES WILSON</div>
+                                <div class="resume-subtitle">SOFTWARE ENGINEER</div>
+                                <div class="contact-info">james.wilson@email.com | (555) 987-6543</div>
+                            </div>
+                            <div class="resume-body">
+                                <div class="section">
+                                    <h4>PROFILE</h4>
+                                    <div class="section-content">
+                                        Experienced Full-Stack Software Engineer with expertise in modern web technologies. Passionate about creating efficient, scalable solutions and collaborating with cross-functional teams to deliver high-quality software products.
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EMPLOYMENT HISTORY</h4>
+                                    <div class="section-content">
+                                        Senior Developer, Tech Company<br>
+                                        Mar 2019 - Present<br>
+                                        • Built responsive web applications<br>
+                                        • Optimized database performance<br>
+                                        • Mentored junior developers
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>SKILLS</h4>
+                                    <div class="section-content">
+                                        • JavaScript, Python<br>
+                                        • React, Node.js<br>
+                                        • PostgreSQL, MongoDB<br>
+                                        • AWS, Docker<br>
+                                        • Git, CI/CD
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <h4>EDUCATION</h4>
+                                    <div class="section-content">
+                                        Computer Science Degree<br>
+                                        MIT<br>
+                                        2015 - 2019
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="use-template-btn">Use this template</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            initialSlide: 1,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                }
+            }
+        });
+
+        // Handle template selection
+        document.querySelectorAll('.use-template-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const templateName = this.closest('.resume-card').querySelector('.resume-title').textContent;
+                alert(`Selected template: ${templateName}\n\nThis would typically redirect to the resume editor.`);
+            });
+        });
+
+        // Update template info based on active slide
+        const templateNames = ['Classic', 'Modern', 'Professional', 'Creative', 'Executive'];
+        const templateInfo = document.querySelector('.template-name');
+        
+        swiper.on('slideChange', function () {
+            const realIndex = this.realIndex;
+            templateInfo.textContent = templateNames[realIndex] || 'Classic';
+        });
+    </script>
+</body>
+</html>
