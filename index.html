@@ -451,7 +451,7 @@
 
 					<div class="banner-image wow fadeInUp inro-wow" data-wow-offset="10" data-wow-duration="1s"
 						data-wow-delay="0.3s">
-						<img class="bounce-effec" src="images/banner/phone.png" alt="" />
+						<img class="bounce-effec" src="images/banner/hero-5.png" alt="" />
 					</div>
 
 				</div>
@@ -460,14 +460,26 @@
 			</div>
 			
 
-			<div class="row">
-				<!-- Intro navigation -->
-				<div class="intro-nav">
-					<div class="container">
-						<div class="wrapper">
-							<div class="owl-arrows"></div>
-							<div class="owl-dots"></div>
+			<div class="row d-none">
+				 <!-- Hero Navigation Controls -->
+				<div class="hero-navigation">
+					<div class="d-flex align-items-center gap-4">
+						<!-- Previous Arrow -->
+						<button class="nav-arrow" id="prevSlide" aria-label="Previous slide">
+							‹
+						</button>
+						
+						<!-- Slide Counter -->
+						<div class="slide-counter">
+							<span class="current-slide" id="currentSlide">01</span>
+							<span class="mx-2">/</span>
+							<span class="total-slides" id="totalSlides">04</span>
 						</div>
+						
+						<!-- Next Arrow -->
+						<button class="nav-arrow" id="nextSlide" aria-label="Next slide">
+							›
+						</button>
 					</div>
 				</div>
 			</div>
@@ -4429,8 +4441,8 @@
 			autoplayTimeout:4000,
 			autoplayHoverPause:true,
 			smartSpeed:800,
-			animateOut: 'zoomOut',
-			animateIn: 'zoomInLeft'
+			animateOut: 'fadeOut',
+			animateIn: 'fadeIn'
 		})	;
 	});
 
@@ -4570,7 +4582,71 @@ function restartAllCarouselAnimations() {
     });
 }
 </script>
-
+<!-- <script>
+        // Navigation functionality for .intro-slideshow Owl Carousel
+        let currentSlideIndex = 1;
+        const totalSlides = 4;
+        
+        const currentSlideElement = document.getElementById('currentSlide');
+        const totalSlidesElement = document.getElementById('totalSlides');
+        const prevButton = document.getElementById('prevSlide');
+        const nextButton = document.getElementById('nextSlide');
+        const $introCarousel = $('.intro-slideshow');
+        
+        // Update counter display
+        function updateCounter() {
+            currentSlideElement.textContent = currentSlideIndex.toString().padStart(2, '0');
+            totalSlidesElement.textContent = totalSlides.toString().padStart(2, '0');
+        }
+        
+        // Previous slide - trigger Owl Carousel
+        prevButton.addEventListener('click', function() {
+            if ($introCarousel.length) {
+                $introCarousel.trigger('prev.owl.carousel');
+            }
+        });
+        
+        // Next slide - trigger Owl Carousel
+        nextButton.addEventListener('click', function() {
+            if ($introCarousel.length) {
+                $introCarousel.trigger('next.owl.carousel');
+            }
+        });
+        
+        // Listen to Owl Carousel slide changes and update counter
+        if ($introCarousel.length) {
+            $introCarousel.on('changed.owl.carousel', function(event) {
+                currentSlideIndex = event.item.index + 1;
+                updateCounter();
+                console.log('Slide changed to:', currentSlideIndex);
+            });
+            
+            // Initialize counter based on current active slide
+            setTimeout(function() {
+                const activeIndex = $introCarousel.find('.owl-item.active').index() + 1;
+                if (activeIndex > 0) {
+                    currentSlideIndex = activeIndex;
+                }
+                updateCounter();
+            }, 500);
+        } else {
+            // Fallback if carousel not found - manual counter
+            prevButton.addEventListener('click', function() {
+                currentSlideIndex = currentSlideIndex > 1 ? currentSlideIndex - 1 : totalSlides;
+                updateCounter();
+                console.log('Previous slide:', currentSlideIndex);
+            });
+            
+            nextButton.addEventListener('click', function() {
+                currentSlideIndex = currentSlideIndex < totalSlides ? currentSlideIndex + 1 : 1;
+                updateCounter();
+                console.log('Next slide:', currentSlideIndex);
+            });
+        }
+        
+        // Initialize
+        updateCounter();
+    </script> -->
 </body>
 
 
