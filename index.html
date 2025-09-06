@@ -4450,15 +4450,17 @@
 	$(document).ready(function(){
 		 $('.intro-slideshow').owlCarousel({
 			items:1,
-			loop:true,
-			nav:true,
-			margin:0,
-			autoplay:true,
-			animateIn:'fadeIn',
-			animateOut:'fadeOut',
-			navContainer:'.intro-nav .owl-arrows',
-			dotsContainer:'.intro-nav .owl-dots',
-			autoplayTimeout:7000,
+        loop:true,
+        nav:true,
+        margin:0,
+        autoplay:true,
+        animateIn:'fadeIn',
+        animateOut:'fadeOut',
+        navContainer:'.intro-nav .owl-arrows',
+        dotsContainer:'.intro-nav .owl-dots',
+        autoplayTimeout:80000,  // 7 seconds per slide
+        autoplaySpeed:1000,    // Animation speed (1 second fade transition)
+        autoplayHoverPause:true // Pause on hover (optional)
 		});
 	})
 </script>

@@ -4432,6 +4432,9 @@ footer.site-footer.fixed-footer {
 .overflow-hidden{
 	overflow: hidden !important;
 }
+#settings_close{
+		display: none !important;
+}
 .backstretch{
 	/* display: none !important; */
 }
