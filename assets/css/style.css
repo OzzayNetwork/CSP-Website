@@ -4429,3 +4429,9 @@ footer.site-footer.fixed-footer {
 	width: auto;
 	display: inherit;
 }
+.overflow-hidden{
+	overflow: hidden !important;
+}
+.backstretch{
+	/* display: none !important; */
+}
